@@ -77,13 +77,13 @@ const Dashboard = () => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
+            // justifyContent: "center",
+            // alignItems: "center",
             height: "100%", // Full viewport height
           }}
           className="container"
         >
-          <div className="flex flex-row w-full justify-center items-center mb-5 gap-4">
+          <div className="flex flex-row w-full mr-5 mb-5 gap-4">
             <div className="flex-1" style={childStyle}>
               1
             </div>

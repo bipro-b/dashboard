@@ -42,7 +42,8 @@ export default function SignUp() {
 
   return (
     <div className="p-3 max-w-lg mx-auto">
-      <h1 className="text-3xl text-center font-semibold my-7">Sign Up</h1>
+      <h1 className="text-3xl text-center font-semibold my-7">Welcome to Pure Ledger</h1>
+      <p>Fill the form to Register.</p>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="text"

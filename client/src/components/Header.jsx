@@ -39,26 +39,16 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-slate-700 shadow-md">
+    <header style={{backgroundColor:"#2397C8"}}>
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
-          <div className="font-bold text-sm sm:text-xl flex flex-col">
+          <div className="font-bold text-sm sm:text-xl flex flex-col mx-0">
             <h3 className="text-white">Pure</h3>
-            <h1 className="text-white">Ledger</h1>
+            <h1 className="text-white">Ledger.</h1>
           </div>
         </Link>
 
         <ul className="flex gap-4">
-          <Link to="/">
-            <li className="hidden sm:inline text-slate-700 hover:underline">
-              Home
-            </li>
-          </Link>
-          <Link to="/about">
-            <li className="hidden sm:inline text-slate-700 hover:underline">
-              About
-            </li>
-          </Link>
           {currentUser ? (
            
             <div className="relative">

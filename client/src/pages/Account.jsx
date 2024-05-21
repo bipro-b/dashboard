@@ -1,10 +1,37 @@
 import { useState } from "react";
 // import { Link, useNavigate } from "react-router-dom";
+import { TextField, Popover, MenuItem, MenuList, Box } from '@mui/material';
+import LeftMenu from "../components/LeftMenu";
 
-export default function Accounts() {
+export default function Account() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("");
+  const [textValue, setTextValue] = useState("");
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleMenuItemClick = (option) => {
+    setSelectedOption(option);
+    handleClose();
+  };
+
+  const handleTextChange = (event) => {
+    setTextValue(event.target.value);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
 
   // const navigate = useNavigate();
   const handleChange = (e) => {
@@ -41,8 +68,10 @@ export default function Accounts() {
   };
 
   return (
-    <div className="p-3 max-w-lg mx-auto">
-      <h1 className="text-3xl text-center font-semibold my-7">Sign Up</h1>
+   <>
+   <LeftMenu/>
+     <div className="p-3 max-w-lg mx-auto">
+      <h1 className="text-3xl text-center font-semibold my-7">Add Accounting</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="Date"
@@ -51,57 +80,66 @@ export default function Accounts() {
           id="date"
           onChange={handleChange}
         />
-        <div className="flex flex-row w-full gap-2">
-          <select
-            className="border p-3 rounded-lg flex-1"
-            id="gender"
-            value={formData.gender}
-            onChange={handleChange}
-          >
-            <option value="" disabled>
-              Select Gender
-            </option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-          <input
-            type="Date"
-            placeholder="Date of Birth"
-            className="border p-3 rounded-lg flex-1"
-            id="dob"
-            onChange={handleChange}
+         <div>
+      <TextField
+        type="text"
+        placeholder="Choose Head"
+        variant="outlined"
+        onClick={handleClick}
+        value={selectedOption}
+        fullWidth
+      />
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+      >
+        <Box p={2}>
+          <MenuList>
+            <MenuItem onClick={() => handleMenuItemClick('Debit')}>Debit</MenuItem>
+            <MenuItem onClick={() => handleMenuItemClick('Credit')}>Credit</MenuItem>
+          </MenuList>
+          <TextField
+            type="text"
+            placeholder="Type here..."
+            variant="outlined"
+            value={textValue}
+            onChange={handleTextChange}
+            fullWidth
+            margin="normal"
           />
-        </div>
+        </Box>
+      </Popover>
+    </div>
+         <input
+          type="text"
+          placeholder="Account Type"
+          className="border p-3 rounded-lg"
+          id="actype"
+          onChange={handleChange}
+        />
+       
 
         <input
-          type="email"
-          placeholder="Email"
-          className="border p-3 rounded-lg"
-          id="email"
-          onChange={handleChange}
-        />
-        <input
           type="text"
-          placeholder="Employee ID"
+          placeholder="Choose Head"
           className="border p-3 rounded-lg"
-          id="eid"
+          id="head"
           onChange={handleChange}
         />
         <input
-          type="text"
-          placeholder="Position in Organization"
+          type="number"
+          placeholder="Amount"
           className="border p-3 rounded-lg"
-          id="designation"
+          id="amount"
           onChange={handleChange}
         />
-        <input
-          type="password"
-          placeholder="password"
-          className="border p-3 rounded-lg"
-          id="password"
-          onChange={handleChange}
-        />
+       
         <button
           disabled={loading}
           className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80 "
@@ -111,5 +149,6 @@ export default function Accounts() {
       </form>
      
     </div>
+   </>
   );
 }

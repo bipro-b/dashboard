@@ -48,7 +48,7 @@ console.log(listing);
     <>
     <LeftMenu/>
       <TableContainer component={Paper} >
-      <Table sx={{ maxWidth: 1200, display:'flex' , flexDirection:'column', justifyContent:'center' ,alignItems:'center'}} aria-label="customized table">
+      <Table sx={{ minWidth: 700, display:'flex' , flexDirection:'column', justifyContent:'center' ,alignItems:'center'}} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell align='right'>Serial</StyledTableCell>
