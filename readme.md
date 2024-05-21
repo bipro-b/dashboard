@@ -1,14 +1,4 @@
-# E-Commerce Project
 
-This is an e-commerce project designed for managing orders, products, and users.
-
-## Features
-
-- **User Interface**: Provides a user-friendly interface for users to browse products, place orders, and manage their accounts.
-- **Admin Panel**: Includes an admin dashboard for managing orders, products, and users.
-- **Order Management**: Allows users to place orders, and admins to view, process, and manage orders.
-- **Product Management**: Enables admins to add, edit, and delete products from the inventory.
-- **User Authentication**: Implements user authentication to ensure secure access to user accounts and admin functionalities.
 
 ## Technologies Used
 
