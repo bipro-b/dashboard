@@ -1,5 +1,4 @@
 // src/components/BarsDataset.js
-import React from 'react';
 import {
   BarChart,
   Bar,
@@ -28,7 +27,7 @@ const dataset = [
 
 const BarsDataset = () => {
   return (
-    <ResponsiveContainer width="100%" height={400}>
+    <ResponsiveContainer width="100%" height={400} >
       <BarChart data={dataset}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="month" />

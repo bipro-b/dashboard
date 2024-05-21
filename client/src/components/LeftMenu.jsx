@@ -1,4 +1,3 @@
-// src/components/Dashboard.js
 import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -10,7 +9,6 @@ import ListItemText from "@mui/material/ListItemText";
 import { CiHome } from "react-icons/ci";
 import { TbReportSearch } from "react-icons/tb";
 import { CiVideoOn } from "react-icons/ci";
-import BarsDataset from "./BarDataset";
 
 const iconMapping = {
   Accounting: " ",
@@ -21,13 +19,8 @@ const iconMapping = {
 
 const drawerWidth = 240;
 
-const Dashboard = () => {
-  const childStyle = {
-    height: "160px",
-    width: "350px",
-    backgroundColor: "#F6EBDB",
-  };
-
+const LeftMenu = () => {
+  
   const navigate = useNavigate();
 
   const handleNavigation = (path) => {
@@ -73,32 +66,10 @@ const Dashboard = () => {
           marginLeft: `${drawerWidth}px`, // Adjust for drawer width
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100%", // Full viewport height
-          }}
-          className="container"
-        >
-          <div className="flex flex-row w-full justify-center items-center mb-5 gap-4">
-            <div className="flex-1" style={childStyle}>
-              1
-            </div>
-            <div className="flex-1" style={childStyle}>
-              2
-            </div>
-            <div className="flex-1" style={childStyle}>
-              3
-            </div>
-          </div>
-          <BarsDataset />
-        </Box>
+        
       </Box>
     </Box>
   );
 };
 
-export default Dashboard;
+export default LeftMenu;
